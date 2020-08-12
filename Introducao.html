@@ -10,6 +10,9 @@
     <body>
         <h1>Introdução - Analytics</h1>
         <p>É muito comum escutarmos sobre o tema de programação orientada a objetos, que por sua vez é um "nível" a mais sobre a pogramação com novas capacidades e estratégias para se compilar. Diante disso, temos uma linguagem que se enciiaxa muito bem para o estudo deste conteúdo, a linguagem <strong>java</strong>. Porém, saiba que orientação a objetos não fica sujeita apenas ao Java, mas a todas as formas de linguagem. A questão, é que o java se capacita de maneira mais eficiente e fácil ao aprendizado deste conteúdo.</p>
+        <p>Mas o que viria a ser essa chamada orientação a objetos? E o que à difere de uma programação estruturada?</p>
+        <p>Em termos gerais, a definição/explcação para a orientação a objetos é uma programação baseada na composição e interação entre divrsas unidades de softwares chamadas de objetos, ou seja, <strong>é a divisão de um software (ou script/projeto) em pequenas partes, de forma que ao juntar essas partes, sua composição estará completa</strong>. Por mais que pareça confuso, é na verdade muito simples. Imagine um script de mais de 500 linhas de comandos, entre eles variáveis, funções e etc, escrita em C. Para realizar a manutenção ou até mesmo a escrita deste script, uma atenção muito clínica deve ser aplicada, pois o programador em questão, terá de analisar linha por linha de todo o script, logo este é um trabalho exaustivo e de muita atenção.</p>
+        <p>A orientação a objetos vem para <strong>facilitar esta operação com scripts/projetos</strong>, uma vez que um script de 500 linhas, como citado acima, poderá ser dividido em 4 scripts de 250 linhas, os quais ao serem mesclados irão gerar um mesmo resultado. Percebeu o quanto é facilitador? Pois dessa forma, ao invés de termos 1 programador trabalhando em um script de 500 linhas (o que é exaustivo, clínico e arriscado), podemos ter 4 programadores focados em apenas partes deste script, dividindo assim o problema para torna-lo mais fácil. Este é o objetivo da orinetação a objetos.</p>
         <ul>
             <li><strong>Java</strong></li>
                 <p>O java é uma linguagem de pogramação mundialmente usada, devido a sua capacidade de execução em qualquer ambiente, ou seja, o java, ou melhor, um script escrito em linguagem java, possui <strong>capacidade de execução em qualquer ambiente ou sistema operacional</strong>, seguinto o conceito abaixo:</p>
@@ -57,11 +60,19 @@
                 <pre>
             <strong>public class</strong> main{
                 <strong>public static void main(String[] args){
+                    <strong><i>tipo</i></strong> <i>variável</i>
                     System.out.println</strong>("A variável em questão é de valor: "+<i>variável</i>);
                 }
             }
                 </pre>
-                <p>Podemos então estimar que o conceito de variáveis, que já é conhecido, se permanece igual, onde os tipos de variáveis (<i>int, float, boolean, char</i> e etc) permanecem o mesmo para o Java, assim como os seus operadores que trabalham em conjunto com essas. Sendo eles operadores matemáticos (+,-,*./ e etc) e operadores de igualdade (=,>,>= e etc).</p>
+                <p>Podemos então estimar que o conceito de variáveis, que já é conhecido, se permanece igual, onde os tipos de variáveis (<i>int, float, boolean, char</i> e etc) permanecem o mesmo para o Java, assim como os seus operadores que trabalham em conjunto com essas. Sendo eles operadores matemáticos (+,-,*./ e etc) e operadores de igualdade (=,>,>= e etc). Porém, algo que vale ressaltar, é que por o Java ser uma linguagem de alto nível, algumas particularidades são presentes nesta linguagem de programação, como por exemplo as variáveis do tipo <strong>string</strong>. No caso do C e de outras linguagens, devemos declarar uma variável do tipo <i>char</i> para que possamos inserir um caracter nesta variável, o mesmo vale para colocarmos uma série de caracteres (como uma frase, por exemplo), no entanto este deve ser um <strong>vetor de caracteres do tipo <i>char</i></strong>. No caso do Java, uma de suas JDK's já nos fornecem o tipo <strong><i>String</i></strong> para as variáveis, podendo assim declarar toda uma cadeia de caracteres do tipo <i>String</i>, como no exemplo abaixo:</p>
+                <pre>
+            <strong>public class</strong> main{
+                <strong>public static void main(String[] args){
+                    String</strong> <i>variável</i>
+                }
+            }
+                </pre>
                 <p>Algo que vale ressaltar também, é o comando para <strong>transformaão de variável</strong>, ou seja, atribuir que uma variável do tipo <i>float</i> receba o conteúdo de uma variável do tipo <i>int</i> por exemplo. Isso se da pelo simples fato de que variáveis de diferentes tipos, não podem ser trapalhadas de forma igual, ou seja, uma variável do tipo <i>float</i> não pode receber o conteúdo de uma variável do tipo <i>int</i>, pois elas possuem tipos diferentes (assim como qualquer outro tipo de variável, seria como misturar água e óleo). Porém, o comando de transformação ou <strong><i>casting</i></strong> realizaça um comando ao programa que irá <strong>transformar os tipos das variáveis</strong>, permitindo assim este tipo de trabalho.</p>
                 <p>É muito simples, imagine que como no exemplo dito acima, existem duas variáveis: <i>int X</i> e <i>float Y</i>. Logo, se houver um comando como: <i>X = Y</i>, o programa irá crachar e apresentar erro, pos são variáveis de tipos diferentes. Portanto, a variável <i>Y</i> dever´ser transformada para o tipo <i>int</i> da seguinte forma:</p>
                 <pre>
