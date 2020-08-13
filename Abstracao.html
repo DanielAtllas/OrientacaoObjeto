@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Abstração e Classes - Orientacao Objeto</title>
+        <meta name="description" content="Este é um site referênte à estudos sobre programação orientada a objetos">
+    </head>
+    
+    <body>
+        <h1>Abtsração e Classes - Orientação a objetos</h1>
+        <p>Podemos dizer que a oientação a objetos possui <strong>4 pilares</strong> que a definem, de forma a comporem todo o processo de criação de um projeto a partir da orientação a objetos. O primeiro desses pilares que iremos estudar é o de <strong>Abstração</strong>, que como o seu nume sugere, é a o processo em que o programador irá <strong>coletar todo tipo de informção necessária para a criação do seu projeto</strong>, ou seja, é a reflexão utilizada para a definição de entidades do mundo real. Na abstração, é possível diferenciar <strong>o que é relevante e o que não é</strong> para o desenvolvimento do projeto.</p>
+        <p>Logo, podemos definir que de certa forma, o processo de abstração vem a ser o primeiro e principal pilar para a defnição e criação de um projeto, pois a partir dele podemos definir o esqueleto e darmos iniciativa ao projeto, além de definirmos um norte para o rumo e objetivo que o projeto terá. Algumas pessoas caem na ilusão de que por este pilar de bastração ser apenas o de coleta de informação, é o mais fácil dos processos. Porém este é um erro muito grave, uma vez que definir o que é realmente importante para um projeto, éu pocesso muito delicado e certeiro. Pois imagine que projetos custam dinheiro e se o seu projeto apresentar a falta de algo ou a presença de algo irrelevante, o custo poderá ser maior para sua produção.</p>
+        <p>Portanto, um programador deve desenvolver um senso de perspectiva e análise de um problema, de forma a abstrair apenas o que for necesspario para o seu projeto. Em orientação a objetos, o principal mecanismo de abstração, são as chamadas <strong>Classes</strong>, que se comportam como as entidades que irão atuar no projeto. Imagine por exemplo que um programador foi contratado para desenvolver um sistema que irá gerenciar uma clínica veterinária. Logo, a entidade principal deste projeto serão os animais que devem ser analisados pelo doutor certo? Então, as classes viriam a ser os tipos de animais que esta clinica irá tratar, como por exemplo cachorros e gatos.</p>
+        <ul>
+        <li><strong>Classes</strong></li>
+            <p>Como dito acima, as classes serão então o campo de definição das entidades que um projeto irá trabalhar, as quais serão compostas por <strong>atributos e métodos</strong>. Esses atributos e métodos irão ajudar a compor/definir as classes do projeto, ou seja, serão informações/dados que definem as características da classe.</p>
+            <p>Se voltarmos ao exemplo da clínica veterinária, digamos que uma classe gato foi definida e agora precisaremos analisar e abstrair as características essênciais e relevantes que definem um gato para um veterinário, como por exemplo se este gato se alimenta bem, sua saúde, situação do pelo, o peso, altura e etc. Perceba que essas ifnromações irão ajudar o doutor de alguma forma, irão cooperar para a sua análise.</p>
+            <ul>
+                <li><strong>Atributos</strong></li>
+                    <p>Os atributos de uma classe são <strong>todas as características que compõem a classe</strong>.</p>
+                    <p>No exemplo da classe gato, podemos definir como atributos a raça, a altura, peso e etc</p>
+                <li><strong>Métodos</strong></li>
+                    <p>Os métodos de uma classe são <strong>todas as ações/atividades e comportamentos que uma classe pode realizar</strong>.</p>
+                    <p>No exemplo da classe gato, podemos definir como métodos se o gato bebe leite, se ele come, o miado e etc.</p>
+            </ul>
+            <p>Outro termo interessante para o conhecimento nesta parte, é o de <strong>instâncias</strong>, que são os resultados que uma classe pode gerar, ou seja, os objetos que uma classe irá definir. Em um segundo exemplo, podemos definir então que a classe seria como uma forma de bolo, o molde que dá formato ao bolo. Logo, todo bolo criado terá exatamanete o mesmo molde, porém diferentes bolos podem ser criados, como chocolate, cenoura e etc. Portanto, a perspectiva é a mesma, pois vários objetos/instâncias (bolos) podem ser gerados a partir de uma mesma classe (molde) e independete do sabor do bolo, o seu formato será o mesmo.</p>
+            <p>Um terceiro exemplo que podemos dar, este mais voltado ao universo de programação, é que a criação de uma classe está relacionada de forma semelhante a definicção de structs, onde uma struct criada (classe) terá N características que a definem (atributos e métodos).</p>
+        </ul>
+        <p>Tendo estes conceitos compreendidos, partiremos então para uma situação mais frequente do processo de abstração e criação de classes, e como iniciarmos este procedimento. Uma ótima dica que pode ajudar muito neste processo, é ter uma <strong>planilha</strong> em que podemos definir certinho as classes do projeto e os atributos e métodos de cada classe.</p>
+        <p>Imagine então que iremos criar um aplicativo de celular extamaente igual ao famoso Tinder, uma "rede social" destinada a promover encontros e relacionamentos entre as pessoas. Então, devemos partir do primeiro pilar da orientação a objetos, o processo de abstração. Ou seja, definirmos as classes e composições destas classes de forma relevante. Temos então, de maneira rápida, as seguintes definições:</p>
+        <ul>
+            <li><strong>Classes</strong>:</li>
+                <ul>
+                    <br><li>Usuário:</li>
+                        <ul>
+                            <li><strong>Atributos:</strong></li>
+                                <ul>
+                                    <li>Foto</li>
+                                    <li>Nome</li>
+                                    <li>Idade</li>
+                                    <li>Descrição</li>
+                                </ul><br>
+                            <li><strong>Métodos:</strong></li>
+                                <ul>
+                                    <li>Dar Match</li>
+                                    <li>Postar foto</li>
+                                    <li>Enviar Mensagem</li>
+                                    <li>Denunciar</li>
+                                </ul>
+                        </ul>
+                     <br><li>Chat:</li>
+                        <ul>
+                            <li><strong>Atributos:</strong></li>
+                                <ul>
+                                    <li>Usuário 1</li>
+                                    <li>Usuário 2</li>
+                                    <li>Data</li>
+                                    <li>Mensagens</li>
+                                </ul><br>
+                            <li><strong>Métodos:</strong></li>
+                                <ul>
+                                    <li>Curtir Mensagem</li>
+                                    <li>Apagar Mensagem</li>
+                                    <li>Enviar Mensagem</li>
+                                </ul>
+                        </ul>
+                    <br><li>Mensagem:</li>
+                        <ul>
+                            <li><strong>Atributos:</strong></li>
+                                <ul>
+                                    <li>Data</li>
+                                    <li>Texto</li>
+                                    <li>Visualização</li>
+                                    <li>Autor</li>
+                                </ul><br>
+                        </ul>
+                </ul>
+        </ul>
+        <p>Perceba então que essas são algumas das classes que irão regir o projeto (o aplicativo Tinder nesse caso) e após conseguirmos abstrair e registrar tais informaçõs, partiremos para a implementação das classes no Java.</p>
+        <ul>
+            <li><strong>Classes no Java</strong></li>
+                <p>O processo de criação/definição das classes no Java, já é parcialmente conhecido, uma vez que já aplicamos a abertura do script. Logo, na janela de canto esquerdo (configurações do projeto) podemos com o botão direito, apertar em <strong><i>default package ou src</i></strong> e selecionarmos a opção <strong>New</strong> e <strong>Class</strong>. Implemente o nome que a classe em questão receberá e estará pronta para ser implementada.</p>
+                <p>A partir de então, podemos definir os atributos e métodos da classe como se fossem variáveis a serem usadas, como no exemplo abaixo:</p>
+                <pre>
+            <strong>public class</strong> Usuario {
+                 <i>//Atributos</i>
+                 <strong>String</strong> foto,nome,desc;
+                 <strong>int</strong> idade;
+                 
+                 <i>//Métodos</i>
+                 <strong>void</strong> DarMatch() {
+                    <strong>System.out.println</strong>("Deu match...");
+                 }
+                 <strong>void</strong> PostarFoto() {
+                    <strong>System.out.println</strong>("Foto postada...");
+                 }
+                 <strong>void</strong> EnviarMsg() {
+                    <strong>System.out.println</strong>("Mensagem enviada...");
+                 }
+                 <strong>void</strong> Denunciar() {
+                    <strong>System.out.println</strong>("Denunciou...");
+                 }
+            }
+                </pre>
+                <p>Perceba então, que quanto a definição dos atributos, é exatamente como declarar variáveis em um script. Já quanto aos métodos, devemos defini-los como funções que irão retornar algum resultado.</p>
+                <p>Agora, devemos <strong>chamar esta classe para o main/executor</strong> de forma que  script principal use esta classe definida. Para isso, iremos entender uma classe como se fosse um <strong>tipo de variável criada</strong>, ou seja, neste caso, foi criada a "variável" (classe) <i>Usuario</i>:</p>
+                <pre>
+            <strong>public class</strong> Exec{
+                <strong>public static void main(String[] args){
+                    Usuario</strong> Marcos = <strong>new</strong> Usuario();
+                }
+            }
+                </pre>
+                <p>Atente-se ao parâmetro <strong>new <i>Classe()</i></strong>, pois este se faz necessário sempre que um objeto for criado para tal classe. Tendo definido tanto a classe como o objeto/entidade para o projeto, pdemos atribuir então, valores para este objeto criado (seguindo a mesma lógica usada nas implementações de <i>structs</i>):</p>
+                <pre>
+            <strong>public class</strong> Exec{
+                <strong>public static void main(String[] args){
+                    Usuario</strong> Marcos = <strong>new</strong> Usuario();
+                        Marcos.nome = "Marcos Jr";
+                        Marcos.idade = 21;
+                        Marcos.desc = "Sou pika...";
+                        
+                        Marcos.DarMatch();
+                }
+            }
+                </pre>
+                <p>Dessa forma, o objeto <i>Marcos</i> da classe <i>Usuario</i> foi definido e usado pela main principal. E como dito, perceba que sobre os atributos, sua definição de valores é exatemnte igual a variáveis de uma struct e quanto aos métodos, é exatamente igual a chamar uma função.</p>
+        </ul>
+    </body>
+</html>
