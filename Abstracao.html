@@ -21,7 +21,7 @@
                     <p>Os atributos de uma classe são <strong>todas as características que compõem a classe</strong>.</p>
                     <p>No exemplo da classe gato, podemos definir como atributos a raça, a altura, peso e etc</p>
                 <li><strong>Métodos</strong></li>
-                    <p>Os métodos de uma classe são <strong>todas as ações/atividades e comportamentos que uma classe pode realizar</strong>.</p>
+                    <p>Os métodos de uma classe são <strong>todas as ações/atividades e comportamentos que uma classe pode realizar</strong> (é recomendado inserir nomes de métodos como modos verbais = <i>inserir(), apresentar(), sacar()</i>).</p>
                     <p>No exemplo da classe gato, podemos definir como métodos se o gato bebe leite, se ele come, o miado e etc.</p>
             </ul>
             <p>Outro termo interessante para o conhecimento nesta parte, é o de <strong>instâncias</strong>, que são os resultados que uma classe pode gerar, ou seja, os objetos que uma classe irá definir. Em um segundo exemplo, podemos definir então que a classe seria como uma forma de bolo, o molde que dá formato ao bolo. Logo, todo bolo criado terá exatamanete o mesmo molde, porém diferentes bolos podem ser criados, como chocolate, cenoura e etc. Portanto, a perspectiva é a mesma, pois vários objetos/instâncias (bolos) podem ser gerados a partir de uma mesma classe (molde) e independete do sabor do bolo, o seu formato será o mesmo.</p>
@@ -90,7 +90,7 @@
                  
                  <i>//Métodos</i>
                  <strong>void</strong> DarMatch() {
-                    <strong>System.out.println</strong>("Deu match...");
+                    <strong>System.out.println</strong>(<strong>this</strong>.nome+" Deu match...");
                  }
                  <strong>void</strong> PostarFoto() {
                     <strong>System.out.println</strong>("Foto postada...");
@@ -99,11 +99,12 @@
                     <strong>System.out.println</strong>("Mensagem enviada...");
                  }
                  <strong>void</strong> Denunciar() {
-                    <strong>System.out.println</strong>("Denunciou...");
+                    <strong>System.out.println</strong>(<strong>this</strong>.nome+"Denunciou...");
                  }
             }
                 </pre>
-                <p>Perceba então, que quanto a definição dos atributos, é exatamente como declarar variáveis em um script. Já quanto aos métodos, devemos defini-los como funções que irão retornar algum resultado.</p>
+                <p>Perceba então, que quanto a definição dos atributos, é exatamente como declarar variáveis em um script. Já quanto aos métodos, devemos defini-los como funções que irão retornar algum resultado. Perceba também o uso do comando <strong><i>this.</i></strong> na chamada dos métodos. Este faz com que os atributos definidos sejam apresentados durante o processo de printagem e a necessidade do <i>this.</i> é para que especificamente os valores desta classe no momento, sejam apresentados.</p>
+                <p>Em relação aos métodos, entenda que os atributos podem ser trabalhados de maneira comum entre eles, como por exemplo incrementar ou diminuir o valor de algum atributo, atribuir novos valores e etc, ou seja, fica a mercer do programador utilizar desses métodos de acordo com sua vntade/necessidade.</p>
                 <p>Agora, devemos <strong>chamar esta classe para o main/executor</strong> de forma que  script principal use esta classe definida. Para isso, iremos entender uma classe como se fosse um <strong>tipo de variável criada</strong>, ou seja, neste caso, foi criada a "variável" (classe) <i>Usuario</i>:</p>
                 <pre>
             <strong>public class</strong> Exec{
@@ -125,7 +126,73 @@
                 }
             }
                 </pre>
-                <p>Dessa forma, o objeto <i>Marcos</i> da classe <i>Usuario</i> foi definido e usado pela main principal. E como dito, perceba que sobre os atributos, sua definição de valores é exatemnte igual a variáveis de uma struct e quanto aos métodos, é exatamente igual a chamar uma função.</p>
+                <p>Dessa forma, o objeto <i>Marcos</i> da classe <i>Usuario</i> foi definido e usado pela main principal. E como dito, perceba que sobre os atributos, sua definição de valores é exatemnte igual a variáveis de uma struct e quanto aos métodos, é exatamente igual a chamar uma função. Vale ressaltar, que os atributos que tiverem valores atribuidos no momento de criação da classe, possuirão valores default para qualquer novo objeto criado, ou seja, no caso do exemplo acima, se inserirmos o valor <i>21</i> para a <i>idade</i> no momento de criação da classe, todos os novos objetos criados a partir dela na <i>main</i> irão obter por default o valor <i>21</i> como <i>idade</i>. É claro que se for desejo do usuário alterar estes valores default durante a <i>main</i>, também será possível.</p>
+                <p>Traremos agora um outro exemplo, para que essa ideia da criação da classe com seus parâmetros e seus objetos, seja fixada. No exemplo a seguir, criaremos um programa baseado uma conta bancária, onde a classe deve obter e trabalhar os dados de um cliente:</p>
+                <pre>
+            <strong>public class</strong> Conta{
+                <i>//Atributos</i>
+                    <strong>String</strong> Nome;
+                    <strong>int</strong> Numero;
+                    <strong>int</strong> Agencia = 222;
+                    <strong>float</strong> Saldo = 0;
+                    
+                <i>//Métodos</i>
+                    <strong>void</strong> sacar(<strong>float</strong> valor){
+                        <strong>this.</strong>saldo = (<strong>this.</strong>saldo - valor);
+                        <strong>System.out.println</strong>("\n [CONTA:] Saque realizado com sucesso! \n");
+                    }
+                    
+                    <strong>void</strong> depositar(<strong>float</strong> valor){
+                        <strong>this.</strong>saldo = (<strong>this.</strong>saldo + valor);
+                        <strong>System.out.println</strong>("\n [CONTA:] Deposito realizado com sucesso! \n");
+                    }
+                    
+                    <strong>void</strong> transferir(<strong>Conta</strong> destino, <strong>float</strong> valor){
+                        <strong>this.</strong>sacar(valor);
+                        destino.saldo = (destino.saldo + valor);
+                    }
+                    
+            
+            }
+                </pre>
+                <p>Neste caso, temos atributos com valores definidos por default (<i>Agencia e Saldo</i>), logo todo objeto criado a partirdesta classe, terá estes valores inicialmente, para tais atributos. Já no método de <i>sacar()</i>, perceba que foi exigido uma variável <i>valor</i> como parâmetro (logo, o cliente precisa passar o valor que deseja sacar) e ao executar tal método, o valor que foi sacado será descontado de seu <i>saldo</i> atual.</p>
+                <p>No caso do método de <i>transferir()</i>, perceba que os parâmetros a serem usados são os objetos da classe <i>Conta</i> (<i>destino</i> = Conta que está recebendo) e na sua implementação, esta chamou outro método para trabalho. Seguindo a exata mesma lógica de usar uma função dentro de outra função em C, certo? No java com orientação a objetos, a ideia é exatamente a mesma, estamos apenas chamando um método dentro de outro método.</p>
+                <p>Já na <i>main()</i> podemos ter exemplificado da seguinte forma:</p>
+                <pre>
+            <strong>public class</strong> Exec{
+                <strong>public static void main(String[] args){
+                    Conta</strong> c1 = <strong>new</strong> Conta();
+                        c1.Nome = <i>" Marcos Jr "</i>;
+                        c1.depositar(500);
+                        <strong>System.out.println</strong>("\n O saldo do(a) "+c1.Nome+" é de: "+c1.Saldo);
+                        
+                    <strong>Conta</strong> c2 = <strong>new</strong> Conta();
+                        c2.Nome = <i>" João "</i>;
+                        c2.depositar(200);
+                        <strong>System.out.println</strong>("\n O saldo do(a) "+c2.Nome+" é de: "+c2.Saldo);
+                        
+                    c1.transferir(c2, 500); 
+                    <strong>System.out.println</strong>("\n O saldo do(a) "+c1.Nome+" é de: "+c1.Saldo);
+                    <strong>System.out.println</strong>("\n O saldo do(a) "+c2.Nome+" é de: "+c2.Saldo);
+                        
+                }
+            }
+                </pre>
+                <p>Aprederemos agora sobre uma <strong>variável universal</strong>, a qual é possível apresentarmos todos os valores dos atributos de um determinado objeto. Basicamente, esta é uma <strong>chamada de memória</strong> em que podemos exibir diretamente o que está alocado na memória relacionada a determinado objeto/classe. Primeiramente, tente executar o comando de printagem do objeto: <strong>System.out.println</strong>(<i>objeto</i>) e perceba o valor a ser exibido. É certo que será exibido um valor como: <i>classe</i>@<i>algum número</i>. Este é o exato <strong>endereço de memória do objeto</strong>, ou melhor, uma <strong>referência</strong> ao endereço do objeto. Isso se da pelo fato de que a orientação a objetos trabalha com <strong>reference type</strong> (referência a endereços de memória e seus valores).</p>
+                <p>Ou seja, com a orientação a objetos, trabalhamos com referências aos endereços de memória em que os objetos/classes estão alocados e ao printarmos um objeto, temos a exibição direta de seu endereço referenciado. Porém, é possível alterar este parâmetro, de forma que o que seja exibido, sejam as informações da classe. Para isso, usamos do comando:</p>
+                <pre>
+            <strong>public</strong> String toString(){
+            
+            }
+                </pre>
+                <p>Este campo trabalha os dados de exibição de um endereço de memória da classe. Dessa forma, podemos alterá-lo para exibirmos o que quisermos, como por exemplo a apresentação de todos os dados da classe em questão:</p>
+                <pre>
+            <strong>public</strong> String toString(){
+                <strong>return</strong> "[CONTA: ] - USUARIO: " + <strong>this.</strong>Nome + "\n[CONTA: ] - SALDO: " + <strong>this.</strong>Saldo;
+            }
+                </pre>
+            <hr>
+            
         </ul>
     </body>
 </html>
