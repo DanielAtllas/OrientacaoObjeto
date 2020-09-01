@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Classes - Orientacao Objeto</title>
+        <meta name="description" content="Este é um site referênte à estudos sobre programação orientada a objetos">
+    </head>
+    
+    <body>
+        <h1>Interação entre classes - Orientação a objetos</h1>
+        <p>Já tendo entendido e compreendido os conceitos iniciais e introdutórios sobre o uso das classes, podemos partir para um nível a mais, onde podemos fazer com que as classes <strong>trabalhem em conjunto</strong>, de forma que ao acionar o objeto de uma classe específica, outra classe também será trabalhada a partir deste mesmo objeto. Esssa questão se faz esclarecedora para projetos maiores, onde as classes devem interagir entre sim (e até mesmo depender uma das outras). Para sso, imaginemos um projeto de criação de um banco de dinheiro, onde teremos classes como conta, usuário (dono da conta), o próprio banco e etc.</p>
+        <p>Inicialmente, já conseguimos identificar que o usuário e a conta estão diretamente relacionados e dependentes um do outro, partiremos então desses dois para os estudos de interação das classes. Tendo ambas as classes criadas e definidos seus atributos, contrutores e métodos, peceba que uma conta para ser criada, deve existir um usuário certo? O dono desta conta. Para isso, é muito simples, bastanto <strong>criar um atributo de classe X que a classe Y depende</strong> (neste caso, deve haver um atributo de <i>usuário</i> na classe <i>conta</i>). Partiremos no exemplo a seguir:</p>
+        <pre>
+            <strong>public class</strong> Conta{
+                <i>//Atributos</i>
+                    <strong>Usuario</strong> dono;
+                    <strong>int</strong> Numero;
+                    <strong>int</strong> Agencia = 222;
+                    <strong>float</strong> Saldo = 0;
+
+            }
+        =========================================================
+        
+            <strong>public class</strong> Usuario{
+                <i>//Atributos</i>
+                    <strong>String</strong> Nome;
+                    <strong>int</strong> Idade;  
+                    
+                    
+                <i>//Construtor</i>
+                    Usuario(<strong>String</strong> nome, <strong>int</strong> idade){
+                        <strong>this.Nome</strong> = nome;
+                        <strong>this.Idade</strong> = idade;
+                    }
+            }
+              
+        </pre>
+        <p>Peceba então que agora a classe <i>conta</i> exige que um objeto da classe <i>usuario</i> esteja criado, para com seus atributos. Além disso, podemos chamar este novo atributo nas definições da classe, como em construtores e métodos:</p>
+        <pre>
+            <strong>public class</strong> Conta{
+                <i>//Atributos</i>
+                    <strong>Usuario</strong> Dono;
+                    <strong>int</strong> Numero;
+                    <strong>int</strong> Agencia = 222;
+                    <strong>float</strong> Saldo = 0;
+                    
+                <i>//Construtor</i>
+                    Conta(<strong>int</strong> numero, <strong>Usuario</strong> dono){
+                        <strong>this.Numero</strong> = numero;
+                        <strong>this.Dono</strong> = dono;
+                    }
+
+            }
+              
+        </pre>
+        <p>Atente-se que como dito anteriormente, para que um objeto <i>conta</i> seja criado, um objeto <i>usuario</i> <strong>deve existir</strong>. Então, por medidas lógicas e de dependência, devemos primeiro criar um usuário e depois uma conta na <i>main</i>. Logo, devemos passar este objeto como parâmetro dos construtores da classe <i>conta</i> (caso seja necessário, pois pode ser que o construtor da classe não exija tal parâmetro). Como a seguir:</p>
+        <pre>
+            <strong>public class</strong> Exec{
+                <strong>public static void</strong> main(String[] args){
+                    <i>//Objetos</i>
+                        Pessoa p1 = <strong>new</strong> Pessoa("Marcos Jr", 21);
+                        
+                        Conta c1 = <strong>new</strong> Conta(001,p1);
+                }
+            }
+        </pre>
+        <p>Pefeito então, temos definido que a cada conta que criada, um usuário deve existir. Porém, faremos agora a criação do essêncial para este projeto, o banco é claro. Logo entendemos que para o banco existir, uma conta deve existir inicialmente e por sua vez, exige a existência de um usuário. Criemos o banco pensando nessas exigências então:</p>
+        <pre>
+            <strong>public class</strong> Banco{
+                <i>//Atributos</i>
+                    <strong>String</strong> Nome = "SICOOB";
+                    <strong>int</strong> Codigo;
+                    <strong>Conta</strong> ContaCliente;
+                    
+                <i>//Construtor</i>
+                    Banco(<strong>int</strong> cod, <strong>Conta</strong> contacliente){
+                        <strong>this.Codigo</strong> = cod;
+                        <strong>this.ContaCliente</strong> = contacliente;
+                    }
+
+            }
+            
+            =========================================================
+            
+            <strong>public class</strong> Exec{
+                <strong>public static void</strong> main(String[] args){
+                    <i>//Objetos</i>
+                        Pessoa p1 = <strong>new</strong> Pessoa("Marcos Jr", 21);
+                        
+                        Conta c1 = <strong>new</strong> Conta(001,p1);
+                        
+                        Banco Sicoob = <strong>new</strong> Banco(1111,c1);
+                }
+            }
+              
+        </pre>
+        <p>Ótimo, agora temos um projeto criado em que suas classes estão diretamente ligadas e dependentes. Dessa forma, podemos conseguir os dados do usuário a partir do banco, como por exemplo ao exibir tal dado na tela com o <i>println()</i>: <i><strong>System.out.println</strong>(Sicoob.ContaCliente.Dono.Nome)</i> e assim obteremos o exato nome do usuário em questão. Tendo essas questões aprendidas, podemos seguir para um otro nível e na verdade muito lógico, afinal, quantas contas um banco pode ter? Inúmeras certo?</p>
+        <p>Partremos então deste princípio de que o banco pode conter várias contas diferentes. Em linguagem C por exemplo, utilizamos e abusamos dos <strong>vetores</strong> para estas questões, onde uma lista de variáveis do mesmo tipo serão trabalhas. Na orientação a objetos o conceito é o mesmo, porém, usaremos de um <strong>ArrayList</strong> que funcionará exatamente como um vetor para este problema, onde poderemos armazenar N variáveis em um array (Neste caso, poderemos armazenar N contas em um array do banco). O qual é definido da seguinte forma:</p>
+        <pre>
+            <strong>ArrayList</strong>&lt;<i>tipo deste array</i>> <i>nome</i> = <strong>new ArrayList</strong>&lt;<i>tipo deste array</i>>();
+        </pre>
+        <p>Perceba então que para o array ser criado, devemos passar o <strong>tipo de variáveis que serão armazenadas nele</strong>, o nome do array e seguirmos com o <strong>new</strong> (isto é pelo fato do ArrayList ser uma JRE do Java, entendido como uma classe do sistema). Vale ressaltar que para o uso deste comando, devemos impotar a biblioteca que o chama com <strong>import java.util.ArrayList;</strong>. Faremos tal implementação com a classe banco então, para seguirmos com o exemplo:</p>
+        <pre>
+            <strong>public class</strong> Banco{
+                <i>//Atributos</i>
+                    <strong>String</strong> Nome = "SICOOB";
+                    <strong>int</strong> Codigo;
+                    <strong>ArrayList</strong>&lt;Conta> contas = <strong>new ArrayList</strong>&lt;Conta>();
+                    
+                <i>//Construtor</i>
+                    Banco(<strong>int</strong> cod, <strong>Conta</strong> contacliente){
+                        <strong>this.Codigo</strong> = cod;
+                        <strong>this.ContaCliente</strong> = contacliente;
+                    }
+
+            }
+
+        </pre>
+        <p>Agora nosso banco possui a capacidade de trabalhar com N contas diferentes. Mas você pode estar se perguntando "E como eu farei pra coletar essas N contas para o banco?". Muito simples na verdade, usaremos do comando de <strong>adição de array</strong> para tal atributo que neste caso ficaria da seguint forma:</p>
+        <pre>
+            <strong>public class</strong> Exec{
+                <strong>public static void</strong> main(String[] args){
+                    <i>//Objetos</i>
+                        Pessoa p1 = <strong>new</strong> Pessoa("Marcos Jr", 21);
+                        
+                        Conta c1 = <strong>new</strong> Conta(001,p1);
+                        
+                        Banco Sicoob = <strong>new</strong> Banco();
+                        Sicoob.contas.add(c1);
+                }
+            }
+              
+        </pre>
+        <p>Podendo assim inserirmos quantos objetos quisermos. Podemos também usar do comando <strong>foreach</strong> que nada mais é do que um <i>for</i> específico para arrays na orientação a objetos, como por exemplo utiliza-lo para exibir os dados das contas existentes no banco: <i><stong>for</stong>(Tipo do atributo do array    atributo : nome do array)</i>, ou seja, precisamos então passar como parâmetro o <strong>tipo de atributo que será trabalhado durante o loop e qual o array que será trabalhado</strong>. Seguiremos com o exemplo do banco:</p>
+         <pre>
+            <strong>public class</strong> Exec{
+                <strong>public static void</strong> main(String[] args){
+                    <i>//Objetos</i>
+                        Pessoa p1 = <strong>new</strong> Pessoa("Marcos Jr", 21);
+                        Pessoa p2 = <strong>new</strong> Pessoa("Maria Clara", 16);
+                        
+                        Conta c1 = <strong>new</strong> Conta(001,p1);
+                        Conta c2 = <strong>new</strong> Conta(002,p2);
+                        
+                        Banco Sicoob = <strong>new</strong> Banco();
+                        Sicoob.contas.add(c1);
+                        Sicoob.contas.add(c2);
+                        
+                        <strong>for</strong>(Conta conta : Sicoob.contas){
+                            <strong>System.out.println</strong>(conta);
+                        }
+                }
+            }
+              
+        </pre>
+        <p>Atente-se a uma questão, que os programadores defendem o fato de que na <i>main</i> deve conter o mínimo de comandos possíveis, uma vz que essa pode ser exibida e compartilhada para terceiros. Portanto, fixamos o fato de incluir comandos de criação de objetos em um <i>.java</i> diferente, o qual iremos chamas de <strong>Utils</strong>. Neste <i>Utils</i> remos focar em <strong>criar objetos de uma classe</strong>, ou seja, a partir deste ponto, toda classe que for criada, será através do <i>Utils</i> e chamada na <i>main</i> certo? Seguiremos então com o exemplo do banco e faremos esta inclusão:</p>
+        <pre>
+            <strong>public class</strong> Utils {
+                <strong>static Pessoa</strong> criarPessoa() {
+                    <strong>String</strong> nome = View.ColetaString("Informe o seu nome: ");
+                    <strong>int</strong> idade = View.ColetaInt("Informe sua idade: ");
+                
+                    Pessoa p = <strong>new</strong> Pessoa(nome,idade);
+                    <strong>return</strong> p;
+                }
+                
+                <strong>static</strong> Conta criarConta() {
+                    Pessoa p = Utils.criarPessoa();
+                    <strong>int</strong> numero = View.ColetaInt("Informe o numero da conta: ");
+                
+                    Conta c = <strong>new</strong> Conta(numero,p);
+                   <strong>return</strong> c;
+                }
+            }
+            
+            ===================================================================================
+            
+            <strong>public class</strong> Exec {
+	           <strong>public static void main(String[] args) {</strong>
+	               <i>//Objects</i>
+		              Conta c1 = Utils.criarConta();
+		              Conta c2 = Utils.criarConta();
+		
+		              Banco b1 = <strong>new</strong> Banco();
+			             b1.Contas.add(c1);
+			             b1.Contas.add(c2);
+			
+
+            }
+
+        </pre>
+    </body>
+</html>
