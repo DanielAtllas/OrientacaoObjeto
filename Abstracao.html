@@ -192,6 +192,37 @@
             }
                 </pre>
             <hr>
+            <li><strong>Construtores</strong></li>
+                <p>Algo que serve de auxílio no processo de criação de uma classe, são os chamados <strong>construtores</strong>, que funcionam como um <strong>parâmetro inicial obrigatório</strong> na declaração de algum objeto para tal classe, ou seja, ao defirnirmos construtores para uma classe, todo objeto que criado a partir dela, deverá obrigatoriamente passar os parâmetros exigidos. Esses parâmetros são variáveis iniciais que irão definir e construi o objeto (os quais são definidos pelo programador).</p>
+                <p>Imagine pelo exemplo acima,que para a criação de uma conta de usuário para o banco, é necessário definir logo de cara o número da conta e o dono da mesma. Usaremos então de contrutores para exigirmos isso para os objetos da classe <i>conta</i>, como a seguir:</p>
+                <pre>
+            <strong>public class</strong> Conta{
+                <i>//Atributos</i>
+                    <strong>int</strong> Numero, Agencia = 934;
+                    <strong>double</strong> Saldo;
+                    <strong>String</strong> Dono;
+                    
+                <i>//Construtor</i>
+                    Conta(<strng>int</strng> numero, <strong>String</strong> dono){
+                        <strong>this.</strong>Numero = numero;
+                        <strong>this.</strong>Dono = dono;
+                    
+                    }
+            }
+                </pre>
+                <p>Perceba então que os parâmetros <i>numero e dono</i> foram exigidos e depois atribuidos aos atributos da classe através do <i>this.</i>. Dessa forma, quando criado um objeto da classe conta, será necessário passar inicialmente esses 2 parâmetros. Além é claro de que o script se torna muito mais legível e curto, evitando declarações de variáveis que já podem ser passadas pelo construtor. Como no exemplo a seguir:</p>
+                <pre>
+            <strong>public class</strong> Exec{
+                <strong>public static void main(String[] args){
+                    Conta</strong> c1 = <strong>new</strong> Conta(001,"Marcos Jr");
+                        
+                    <strong>Conta</strong> c2 = <strong>new</strong> Conta(002,"João");
+
+                        
+                }
+            }
+                </pre>
+                <p>Vale ressaltar que o processo de abtsração é muito exigente na criação do construtor, pois recomenda-se passar no contrutor apenas aqueles atributos que são realmente necessários passar inicialmente. Como no caso do atributo <i>saldo</i>, pois uma conta pode muito bem ter um saldo zerado. Logo, não é necessário passar este parâmetro. Já no caso dos atributos <i>numero e dono</i>, são extremamente necessários para a criação de uma conta certo?</p>
             
         </ul>
     </body>

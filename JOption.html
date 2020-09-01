@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JOption - Orientacao Objeto</title>
+        <meta name="description" content="Este é um site referênte à estudos sobre programação orientada a objetos">
+    </head>
+    
+    <body>
+        <h1>Trabalhando com JOption - Orientação a objetos</h1>
+        <p>Tendo aprendido os conceitos básicos e introdutórios sobre o uso de classes e objetos, atribuições de atributos e módulos, vale ressaltar uma importante ferrament utilizada em 90% dos programas e scripts criados. Que é exatamente o processo de abstração e interação de dados do próprio programa com o usuário em questão, ou seja, ferramentas que permitem o usuário interagir diretamente com o progrma, inserir dados e etc. Em C, por exemplo, utilizamos e abusamos muito dos comandos <i>printf()</i> e <i>scanf()</i> que realizam essas interações diretas com o usuário. Porém, com o java e a orientação a objetos, faz-se necessária a chamada de bibliotecas e suas funções, as quais serão passadas a seguir.</p>
+        <p>Já aprendemos que podemos utilizar de "atalhos" em alguns comandos para com o Java, através de seu prefixo e <i>ctrl + espaço</i> e faremos o mesmo quanto a chamada das funções Java para interação com o usuário. Para isso, inserimos o prefixo <i><strong>joption</strong></i> e em seguida o comando de atalho. Feito isso, será auto encrementado o comando <strong>JOptionPane</strong> e acima do script, terá o comando <i><strong>import</strong> javax.swing.JOptionPane</i>; Que é exatamente a chamada da biblioteca que desejamos usar.</p>
+        <p>Esse comando de <i>JOptionPane</i> funcionará como o <i>printf()</i> ou <i>scanf()</i>, dependendo da forma como o chamamos. Por exemplo:</p>
+        <ul>
+            <li>JOptionPane.showMessageDialog(null, <i>mensagem</i>) - Comando de exibição de mensagens para o usuário.</li>
+            <br>
+            <li>JOptionPane.showImputDialog(<i>mensagem</i>) - Comando de interação do usuário, com a inserção de valor/dado (Utilizamos de uma variável recebendo este comando, para que seja inserido o valor que o usuário escrever, na variável). Como no exemplo a seguir:</li>
+            <pre>
+            <strong>String</strong> Nome = JOptionPane.showImputDialog(" Insira o seu nome: ");
+            </pre>
+        </ul>
+    </body>
+</html>
