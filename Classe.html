@@ -154,6 +154,21 @@
             }
               
         </pre>
+        <p>Obviamente, também é possível utilizar de um loop <i>for()</i> comum, passando parâmetros de inicio, paragem e incremento. Vale também comentar, que ao utilizar de um <i>ArrayList</i> em que os elementos serão objetos de uma classe, algus novos comandos e interações são possíveis utilizar. Sendo os principais:</p>
+        <ul>
+            <li><strong>.add()</strong> - Comando que realiza a <strong>adição de elementos</strong> ao ArrayList.</li>
+            <pre>
+                Sicoob.contas<strong>.add</strong>(<i>c1</i>);
+            </pre>
+            <li><strong>.remove()</strong> - Comando que realiza a <strong>remoção de elementos</strong> ao ArrayList, devendo passar o índice (posição) do elemento.</li>
+            <pre>
+                Sicoob.contas<strong>.remove</strong>(<i>1</i>);
+            </pre>
+            <li><strong>.get()</strong> - Comando que foca na <strong>execução de um elemento específico</strong>, onde devemos passar o índice (posição) do elemento.</li>
+            <pre>
+                Sicoob.contas<strong>.get</strong>(1);
+            </pre>
+        </ul>
         <p>Atente-se a uma questão, que os programadores defendem o fato de que na <i>main</i> deve conter o mínimo de comandos possíveis, uma vz que essa pode ser exibida e compartilhada para terceiros. Portanto, fixamos o fato de incluir comandos de criação de objetos em um <i>.java</i> diferente, o qual iremos chamas de <strong>Utils</strong>. Neste <i>Utils</i> remos focar em <strong>criar objetos de uma classe</strong>, ou seja, a partir deste ponto, toda classe que for criada, será através do <i>Utils</i> e chamada na <i>main</i> certo? Seguiremos então com o exemplo do banco e faremos esta inclusão:</p>
         <pre>
             <strong>public class</strong> Utils {
