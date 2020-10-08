@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Encapsulamento - Orientação a objetos</title>
+        <meta name="description" content="Este é um site referênte à estudos de programação orientada a objetos">
+    </head>
+    
+    <body>
+        <h1> Encapsulamento - Orientação a objetos </h1>
+        <p>O segundo pilar entre os importantes da orientação a objetos, sendo <strong>a técnica que faz com que detalhes internos e funcionamento dos métodos de uma classe permaneçam ocultos</strong>, ou seja, é o processo de segurança dos detalhes e funcionamentos de uma classe, de forma que terceiros não consigam acessar os dados de forma direta, evitando erros e falhas com o funcionamento da classe. Pode-se dizer também, que o processo de encapsulamento tem como função esconder a complexidade do script para o usuário.</p>
+        <p>Imagine então que um usuário deverá se preocupar apenas com o uso do programa, fazendo com que o programador "esconda" a engenharia/lógica de execução do programa.</p>
+        <p>Por exemplo, imagine uma classe <i>Carro</i> que contenha métodos como (<i>Ligar, Acelerar, Parar, Desligar</i>) e os atributos (<i>Modelo, Marca, Ano, Km</i>). Neste caso, se o usuário tiver acesso direto aos atributos do carro, com toda certeza iriam ocorrer falhas, fazendo toda a estrutura do carro quebrar, ou seja, tal complexidade deve ficar disponível apenas para o desenvolvedor do carro, pois ele entende e compreende a arquitetura e a lógica da execução.</p>
+        <p>Diante disso, o processo de emcapsulamento <strong>cria métodos que permitam a interação do usuário, com os atributos, de maneira indireta</strong>. No exemplo do carro, além dos métodos adotados, teriamos os métodos de encapsulamento, como:</p>
+        <ul>
+            <li><strong>Modelo</strong> - <i>VerModelo()</i> e <i>AlterarModelo()</i>;</li>
+            <li><strong>Marca</strong> - <i>VerMarca()</i> e <i>AlterarMarca()</i>;</li>
+        </ul>
+        <p>Diante disso, a primeira coisa que devemos fazer, é inserir o comando <strong>private</strong> nos atributos que foram <strong>sensíveis</strong> para a classe, ou seja, todos aqueles atributos presentes em uma classe, que são sensíveis de mais (que não podem sofrer interação direta com o usuário ou outras classes) devem receber o comando de modificação de acesso, o <i>private</i>. Isto define que apenas a classe em questão, poderá modificar tal atributo, como por exemplo:</p>
+        <pre>
+        <i>//Atributos</i>
+            <strong>private String</strong> MarcaCarro;
+        </pre>
+        <p>Tendo um atributo fechado/privado, só poderemos alterar e manipular o valor do atributo através de <strong>métodos publicos</strong>. No caso do exemplo acima, podemos criar o método <i>InserirMarca()</i>, onde podemos alterar este valor de acordo com o parâmetro que o usuário inserir (Lembre-se de inserir o comando <i>public</i> nos métodos que possuem relação com atributos privados). Para um melhor entendimento, segue o exemplo:</p>
+        <pre>
+        <i>//Atributos</i>
+            <strong>private String</strong> MarcaCarro;
+            
+        <i>//Metodos</i>
+            <strong>public void</strong> InserirMara(<strong>String</strong> marca){
+                <strong>this.</strong>Marca = marca;
+            }
+        </pre>
+        <p>Ou seja, a interação direta com o atributo está bloqueada, mas a interação indireta (através de métodos) está permitida para uso e manipulação do mesmo. Aconselha-se também, utilizar de <strong>validadores</strong> no momento de criação do método, de forma que o programa se torne inteligente suficiente para não permitir valores inválidos, por exemplo:</p>
+        <pre>
+        <i>//Atributos</i>
+            <strong>private String</strong> MarcaCarro;
+            
+        <i>//Metodos</i>
+            <strong>public void</strong> InserirMara(<strong>String</strong> marca){
+                <strong>if</strong>(marca<strong>.isEmpty()</strong>){
+                    <strong>this.</strong>Marca = marca;
+                }<strong>else</strong>{
+                    View.Erro("MARCA INVÁLIDA");
+                }
+            }
+        </pre>
+        <p>Esses métodos podem, geralemnte, variar entre 2 possíbilidades, onde será possível <strong>alterar</strong> o valor de um atributo privado ou, poder <strong>exibir</strong> o valor de um atributo privado. Para isso, nomeamos esses atributos de <strong>get</strong> (exibir) e <strong>set</strong> (modificar). Ou ao clicar com o botão direito sobre a tela, podemos ir na opção <strong>source</strong> e <strong>geneate Gtters and Setters</strong>.</p>
+    </body>
+</html>
