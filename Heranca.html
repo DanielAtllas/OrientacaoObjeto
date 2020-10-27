@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Herança - Orientacao Objeto</title>
+        <meta name="description" content="Este é um site referênte à estudos sobre programação orientada a objetos">
+    </head>
+    
+    <body>
+        <h1>Herança - Orientação a objetos</h1>
+        <p>O terceiro principal pilae de orientação a objetos se baseia na capacidade que as classes <strong>herdam os atributos/métodos</strong> de uma classe "universal", chamada de <strong>superclasse</strong>. Ou seja, a herança permite que classes <strong>compartilhem os seus atributos/métodos</strong>, através de uma relação hierarquica de "pai-filho". Ela é usada na intenção de <strong>reaproveitar código</strong> ou comportamentos.</p>
+        <p>Diante disso, temos tipos de classes para tal contexto, como:</p>
+        <ul>
+            <li><strong>Superclasse</strong> - Classe universal destributiva, também tida como "classe pai";</li>
+            <br>
+            <li><strong>Subclasses</strong> - São as classes originadas da anterior, também tidas como "classes filhas".</li>
+        </ul>
+        <p>Dessa forma, a supe classe irá possuir os atributos/métodos que serão reaproveitados pelas subclasses. Imagine por exemplo 3 classes {<i>Veiculo, Carro, Moto</i>}. Podemos observar que todo carro é um veículo, mas nem todo carro é uma moto (o mesmo para a classe moto). Logo, a classe veiculo é uma superclasse e as demais, subclasses.</p>
+        <p>Imagine agora que todo veículo possui os atributos {<i>Marca, Ano, Modelo</i>}. Para não repetir os mesmos atributos para a classe moto e carro, <strong>apenas a superclasse Veiculo conterá esses atributos universais.</strong></p>
+        <h3>Implementação</h3>
+        <p>Partiremos agora para a implementação deste pilar da herança no script do programa, criamos primeiro então a superclasse que terá os dados universais:</p>
+        <pre>
+            <strong>abstract public class</strong> Veiculo{
+                //Attributes
+                    <strong>String</strong> Marca, Modelo;
+                    <strong>int</strong> Ano;
+            }
+        </pre>
+        <p>Perceba o uso do comando <strong>abstract</strong> no escopo da classe. Este deve ser inserido pelo progromador e possui a função de transformar a classe em universal, de forma que ela não possa criar objetos puros e diretos.</p>
+        <p>O segundo passo, é criar a subclasse que herdará os dados da anterior:</p>
+        <pre>
+            <strong>public class</strong> Carro <strong>extends</strong> Veiculo{
+                //Attributes
+                    <strong>int</strong> QtdPortas;
+            }
+        </pre>
+        <p>Perceba o uso do comando <strong>extends <i>superclasse</i></strong>, o qual indica que esta é uma subclasse de outra indicada. Assim, ele possui acesso aos atributos de sua superclasse, mas ninguém acessará seus atributos únicos (QtdPortas):</p>
+        <pre>
+            <strong>public class</strong> Exec{
+                //Objects
+                    Carro uno = <strong>new</strong> Carro();
+                    
+                    uno.Marca = "Fiat";
+                    uno.Ano = 2018;
+                    uno.QtdPortas = 4;
+            }
+        </pre>
+        <p><strong>Vale lembrar que uma subclasse, pode se tornar uma superclasse para outras N classes, dependendo do desejo do programador. Para isso, basta repetir os mesmos procedimentos</strong>.</p>
+        <h3>Sobrescrita</h3>
+        <p>Com a sobrescrita, conseguimos especializar os métodos herdados das superclasses, alterando o seu comportamento nas subclasses por um mais específico. Esta capacidade, está relacionada aos <strong>métodos</strong> compartilhados pela superclasse, ou seja, podemos <strong>trabalhar/alterar/utilizar</strong> os métodos da superclasse de forma indireta, <strong>ao serem chamados pelas subclasses</strong>. Como no exemplo a seguir:</p>
+        <pre>
+            <strong>abstract public class</strong> Veiculo{
+                //Methods
+                    <strong>public void</strong> Acelerar(<strong>int</strong> velocidade){
+                        View.Exibirmsg("Acelerando a "+velocidade+"Km/h");
+                    }
+            }
+            
+            ==============================================
+            
+            <strong>public class</strong> Carro <strong>extends</strong> Veiculo{
+                //methods
+                    <strong>@Override</strong> 
+                    <strong>public void</strong> Acelerar(<strong>int</strong> velocidade){
+                        <strong>super.</strong>Acelerar(velocidade);
+                        View.Exibirmsg("Correndo...");
+                    }
+            }
+        </pre>
+    </body>
+</html>
