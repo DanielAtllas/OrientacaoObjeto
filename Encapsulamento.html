@@ -47,5 +47,43 @@
             }
         </pre>
         <p>Esses métodos podem, geralemnte, variar entre 2 possíbilidades, onde será possível <strong>alterar</strong> o valor de um atributo privado ou, poder <strong>exibir</strong> o valor de um atributo privado. Para isso, nomeamos esses atributos de <strong>get</strong> (exibir) e <strong>set</strong> (modificar). Ou ao clicar com o botão direito sobre a tela, podemos ir na opção <strong>source</strong> e <strong>geneate Gtters and Setters</strong>.</p>
+        <p>Outra diferença que deverá ser implementada, é em relação aos <strong>construtores</strong> que ao invés de receberem o atributo direto com <i>this.</i>, deverão receber os <strong>Setters</strong>. Como no exemplo abaixo:</p>
+         <pre>
+        <i>//Atributos</i>
+            <strong>private String</strong> Marca;
+            
+        <i>//Constructor</i>
+            Carro(<strong>String</strong> marca){
+                SetMarca(marca);
+            }
+            
+        <i>//Metodos</i>
+            <strong>public void</strong> SetMarca(<strong>String</strong> marca){
+                <strong>if</strong>(marca<strong>.isEmpty()</strong>){
+                    <strong>this.</strong>Marca = marca;
+                }<strong>else</strong>{
+                    View.Erro("MARCA INVÁLIDA");
+                }
+            }
+            
+            <strong>public void</strong> GetMarca(){
+                <strong>return this.</strong>Marca;
+            }
+        </pre>
+        <p>Você perceberá que utilizar o processo de encapsulamento com <i>ArrayList</i> pode ser um pouco mais trabalhoso ao utilizar dos <i>Get/Set</i>. Portanto, é indicado utilizar de <strong>métodos públicos</strong> que trabalhem e validem o <i>ArrayList</i> em questão (devendo ainda sim, trancá-lo com o comando <i>private</i>). Como no exemplo a seguir:</p>
+        <pre>
+        <i>//Atributos</i>
+            <strong>private ArrayList</strong>&lt;Carro> carros = <strong>new ArrayList</strong>&lt;Carro>();
+            
+            
+        <i>//Metodos</i>
+            <strong>public void</strong> inserirCarro(Carro car){
+                <strong>this.</strong>carros.add(car);
+            }
+            
+            <strong>public void</strong> removerCarro(Carro car){
+                <strong>this.</strong>carros.remove(car);
+            }
+        </pre>
     </body>
 </html>
