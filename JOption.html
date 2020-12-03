@@ -26,23 +26,23 @@
             <p>Porém, perceba que esses comandos, de certa forma, acabam poluindo o script da <i>main</i>, de forma que fique muita informação no seu script (caso esse que muito programador abomina, dizendo que a <i>main</i> por ser um script de exibição a terceiros, deve conter o minimo de código possível). Por este motivo e outros, aconselha-se criar um outro <i>.java</i>, chamado de <strong>View</strong>, onde aqui ficará definido o escopo de interação com o usuário, através do JOption. Ou seja, comando de exibição de mensagem ou coleta de dados, serão tratados na <i>View</i> e chamados pela <i>main</i>. Como por exemplo:</p>
             <pre>
         <strong>public class</strong> View{
-            <strong>static void</strong> ExibirMensagem(<strong>String</strong> msg){
-                <strong>System.out.println</strong>(<strong>null</strong>,msg);
+            <strong>static void</strong> ExibirMensagem(<strong>String</strong> titul<strong>String</strong> msg){
+                <strong>System.out.println</strong>(<strong>null</strong>,msg,titul,1);
             }
             
-            <strong>static String</strong> ColetaString(<strong>String</strong> msg){
-                <strong>return</strong> <strong>JOptionPane.showImputDialog</strong>(<strong>null</strong>,msg);
+            <strong>static String</strong> ColetaString(<strong>String</strong> titul<strong>String</strong> msg){
+                <strong>return</strong> <strong>JOptionPane.showImputDialog</strong>(<strong>null</strong>,msg,titul,1);
 
             }
             
-            <strong>static int</strong> ColetaInt(<strong>String</strong> msg){
-                <strong>String</strong> returno = <strong>JOptionPane.showImputDialog</strong>(<strong>null</strong>,msg);
+            <strong>static int</strong> ColetaInt(<strong>String</strong> titul,<strong>String</strong> msg){
+                <strong>String</strong> returno = <strong>JOptionPane.showImputDialog</strong>(<strong>null</strong>,msg,titul,1);
                 <strong>return</strong> <strong>Integer.parseInt</strong>(retorno);
             }
             
             
-            <strong>static void</strong> ExibirErro(<strong>String</strong> erro){
-                <strong>JOptionPane.showMessageDialog</strong>(<strong>null</strong>,erro, " ERRO ", <strong>JoptionPane.ERROR_MESSAGE</strong>);
+            <strong>static void</strong> ExibirErro(<strong>String</strong> msg){
+                <strong>JOptionPane.showMessageDialog</strong>(<strong>null</strong>,msg, " ERRO ", <strong>JoptionPane.ERROR_MESSAGE</strong>);
 
             }
             
